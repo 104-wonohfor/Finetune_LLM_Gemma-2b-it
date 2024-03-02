@@ -14,7 +14,7 @@ Preview:
 ![image](https://github.com/104-wonohfor/Finetune_LLM_Gemma-2b-it/assets/104601534/c30ccd67-3073-489c-ab10-b9cafffa6f2e)
 
 ## Why finetune?
-- I request the model to code the fibonacci series in python using reccursion. And here is result before fine-tuning:
+- I request the model to code the fibonacci series in python using recursion. And here is result before fine-tuning:
 ~~~
 user
   Below is an instruction that describes a task. Write a response that appropriately completes the request.
