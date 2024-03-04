@@ -5,14 +5,6 @@
 - Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. They are text-to-text, decoder-only large language models, available in English, with open weights, pre-trained variants, and instruction-tuned variants. Gemma models are well-suited for a variety of text generation tasks, including question answering, summarization, and reasoning. Their relatively small size makes it possible to deploy them in environments with limited resources such as a laptop, desktop or your own cloud infrastructure, democratizing access to state of the art AI models and helping foster innovation for everyone.
 - In this project, I want to finetune the model in order to generate code.
 
-## Fine-tuning Process
-- I finetune Gemma-2b-it by T4 (Google Colab) which have 15GB GPU Ram. However, according to my observations, this task only need around 10GB.
-- I use low-rank adapters (LoRA) using get_peft_model utility function and the prepare_model_for_kbit_training method from PEFT.
-- I use the dataset [TokenBender/code_instructions_122k_alpaca_style](https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style).
-Preview:
-
-![image](https://github.com/104-wonohfor/Finetune_LLM_Gemma-2b-it/assets/104601534/c30ccd67-3073-489c-ab10-b9cafffa6f2e)
-
 ## Why finetune?
 - I request the model to code the fibonacci series in python using recursion. And here is result before fine-tuning:
 ~~~
@@ -50,6 +42,13 @@ model
 ~~~
 - The answer is quite good but I expected something like this (from GeeksforGeeks): ![image](https://github.com/104-wonohfor/Finetune_LLM_Gemma-2b-it/assets/104601534/f4f790e7-e479-4c7a-bbcb-550cd93c4baf)
 
+## Fine-tuning Process
+- I finetune Gemma-2b-it by T4 (Google Colab) which have 15GB GPU Ram. However, according to my observations, this task only need around 10GB.
+- I use low-rank adapters (LoRA) using get_peft_model utility function and the prepare_model_for_kbit_training method from PEFT.
+- I use the dataset [TokenBender/code_instructions_122k_alpaca_style](https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style).
+Preview:
+
+![image](https://github.com/104-wonohfor/Finetune_LLM_Gemma-2b-it/assets/104601534/c30ccd67-3073-489c-ab10-b9cafffa6f2e)
 ## Setting Model Parameters and Lora 
 - I set various parameters for our fine-tuning process, including QLoRA (Quantization LoRA) parameters, bitsandbytes parameters, and training arguments.
 - [Here](https://twitter.com/adithya_s_k/status/1744065797268656579?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1744065797268656579%7Ctwgr%5E367f3db066e6dfcc3b91caa1d2133fa0d118e285%7Ctwcon%5Es1_c10&ref_url=https%3A%2F%2Fcdn.embedly.com%2Fwidgets%2Fmedia.html%3Ftype%3Dtext2Fhtmlkey%3Da19fcc184b9711e1b4764040d3dc5c07schema%3Dtwitterurl%3Dhttps3A%2F%2Ftwitter.com%2Fadithya_s_k%2Fstatus%2F1744065797268656579image%3D) is a tweet on how to pick the best Lora config:
