@@ -42,7 +42,7 @@ model
 ~~~
 - The answer is quite good but I expected something like this (from GeeksforGeeks): ![image](https://github.com/104-wonohfor/Finetune_LLM_Gemma-2b-it/assets/104601534/f4f790e7-e479-4c7a-bbcb-550cd93c4baf)
 
-## Fine-tuning Process
+## Fine-tuning 
 - I finetune Gemma-2b-it by T4 (Google Colab) which have 15GB GPU Ram. However, according to my observations, this task only need around 10GB.
 - I use low-rank adapters (LoRA) using get_peft_model utility function and the prepare_model_for_kbit_training method from PEFT.
 - I use the dataset [TokenBender/code_instructions_122k_alpaca_style](https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style).
